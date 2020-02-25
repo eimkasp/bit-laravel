@@ -7,6 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Pasileisti projekta lokaliai
+Nusiklonuoti arba parsisiusti visa repozitorijos koda
+
+tada atsidaryti komandine eilute (terminala)
+toje direktorijoje kur parsisiunteme koda
+ir turime paleisti komanda
+`composer install`
+
+paleidus composer install toje pacioje vietoje paleisti komanda
+`php artisan serve`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
