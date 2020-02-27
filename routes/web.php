@@ -36,3 +36,6 @@ Route::get('/kmi', 'KMIController@index');
 // pasikreipus i sita route'a post budu, surinkti duomenis is formos, suskaiciuoti kmi reiksme
 // ir atvaizduoti ja view faile, /resources/views/kmi-rezultatas.blade.php
 Route::post('/kmi', 'KMIController@calculate');
+
+
+Route::get('/products', 'ProductController@index');
