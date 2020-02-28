@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/labas', function () {
 	return view('labas');
 });
@@ -37,5 +33,17 @@ Route::get('/kmi', 'KMIController@index');
 // ir atvaizduoti ja view faile, /resources/views/kmi-rezultatas.blade.php
 Route::post('/kmi', 'KMIController@calculate');
 
+Route::get('/', 'ProductController@index');
+Route::get('/products', 'ProductController@index')->name('products.index');
 
-Route::get('/products', 'ProductController@index');
+// produkto sukurimo formos atvaizdavimas
+Route::get('/products/create', 'ProductController@create')->name('products.create');
+
+// produkto formos duomenu surinkimas ir issaugojimas i duombaze
+Route::post('/products/create', 'ProductController@store')->name('products.store');
+
+// Produkto istrynimas
+
+// dinaminsi route, su ID parametru
+// products/delete/3
+Route::get('/products/delete/{id}', 'ProductController@delete')->name('products.delete');

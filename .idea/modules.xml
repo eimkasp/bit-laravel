@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bit-laravel.iml" filepath="$PROJECT_DIR$/.idea/bit-laravel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/bit-laravel.iml" filepath="$PROJECT_DIR$/.idea/bit-laravel.iml" />
     </modules>
   </component>
 </project>
