@@ -50,6 +50,12 @@
                                 Sukurti produkta
                             </a>
                         </li>
+
+                        <li>
+                            <a class='nav-link' href="{{ route('categories.index') }}">
+                                Kategorjos
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

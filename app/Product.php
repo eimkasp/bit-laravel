@@ -8,4 +8,12 @@ class Product extends Model
 {
     // $table nurodo kuriai mysql duombazes lentelei priklauso modelis
 	protected $table = 'products';
+
+	public function price() {
+		return $this->price . "€";
+	}
+
+	public function category() {
+		return $this->hasOne('App\Category', 'id', 'category_id');
+	}
 }

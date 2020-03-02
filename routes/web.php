@@ -47,3 +47,8 @@ Route::post('/products/create', 'ProductController@store')->name('products.store
 // dinaminsi route, su ID parametru
 // products/delete/3
 Route::get('/products/delete/{id}', 'ProductController@delete')->name('products.delete');
+
+// Produkto atvaizdavimo puslapis
+Route::get('/products/{id}', 'ProductController@show')->name('products.show');
+
+Route::get('/categories', 'CategoryController@index')->name('categories.index');

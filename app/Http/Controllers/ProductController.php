@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -13,10 +14,18 @@ class ProductController extends Controller
 	public function index() {
 
 		// kreipiames i Product modeli
-		$products = Product::all();
+		// Jei naudojame ne all arba find funckijas, visada kreipiantis i modeli
+		// reikia pabaigoje parasyti ->get()
+		$products = Product::where('price', '<', 100)
+						   ->where('title', 'LIKE', '%pro%')
+						   ->get();
+
+
+
+		$productsCount = Product::count();
 
 		// grazzinu view faila is /resources/views/products/index.blade.php
-		return view('products.index', compact(['products']));
+		return view('products.index', compact(['products', 'productsCount']));
 	}
 
 	/* produkto sukurimo formos atvaizdavimas */
@@ -54,8 +63,11 @@ class ProductController extends Controller
 	}
 
 	/* TODO : Padaryti produkto atvaizdavimo puslapi */
-	public function show() {
+	public function show($id) {
+		// findOrFail funkcija grazina 404 atsakyma, jei toks elementas nerastas duombazeje
+		$product = Product::findOrFail($id);
 
+		return view('products.show', compact('product'));
 	}
 
 	/* TODO : Padaryti produkto redagavimo puslapi (cia turi buti rodoma forma su pasirinkto produkto duomenimis)  */
