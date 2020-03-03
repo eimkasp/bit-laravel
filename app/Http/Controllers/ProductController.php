@@ -73,12 +73,20 @@ class ProductController extends Controller
 	}
 
 	/* TODO : Padaryti produkto redagavimo puslapi (cia turi buti rodoma forma su pasirinkto produkto duomenimis)  */
-	public function edit() {
+	public function edit($id) {
+		$product = Product::findOrFail($id);
 
+		return view('products.edit', compact('product'));
 	}
 
 	/* TODO : Padaryti produkto redagavimo loogika */
-	public function update() {
+	public function update(Request $request, $id) {
+		$product = Product::findOrFail($id);
 
+		$product->title = $request->input('title');
+		$product->price = $request->input('price');
+		$product->save();
+
+		return redirect()->route('products.show', $product->id);
 	}
 }

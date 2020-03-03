@@ -20,6 +20,18 @@
 
         <hr>
         <div class="col-md-12">
+            <h2>Rasyti komentara</h2>
+            <form method="post" action="{{ route('comments.create') }}">
+                @csrf
+                <textarea name="comment_text" class='form-control' placeholder="Jusu komentaras" required></textarea>
+                <input type="submit" value="Rasyti komentara" class="btn btn-primary mt-3" />
+                {{-- Perduodame produkto ID kuriam produktui tures buti priskirtas komentaras--}}
+                <input type="hidden" name="product_id" value="{{ $product->id }}" />
+            </form>
+
+            <hr>
+            <hr>
+
             <h2>Produkto komentarai</h2>
             <hr>
             @foreach($product->comments as $comment)

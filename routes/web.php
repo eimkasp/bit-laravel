@@ -39,6 +39,9 @@ Route::get('/products', 'ProductController@index')->name('products.index');
 // produkto sukurimo formos atvaizdavimas
 Route::get('/products/create', 'ProductController@create')->name('products.create');
 
+Route::get('/products/edit/{id}', 'ProductController@edit')->name('products.edit');
+Route::post('/products/edit/{id}', 'ProductController@update')->name('products.update');
+
 // produkto formos duomenu surinkimas ir issaugojimas i duombaze
 Route::post('/products/create', 'ProductController@store')->name('products.store');
 
@@ -52,3 +55,7 @@ Route::get('/products/delete/{id}', 'ProductController@delete')->name('products.
 Route::get('/products/{id}', 'ProductController@show')->name('products.show');
 
 Route::get('/categories', 'CategoryController@index')->name('categories.index');
+
+
+// komentarai
+Route::post('/comments/create', 'CommentController@store')->name('comments.create');

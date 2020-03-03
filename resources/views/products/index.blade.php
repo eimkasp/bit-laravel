@@ -25,6 +25,10 @@ resources/views/layouts/app.blade
                 <a href="{{ route('products.delete', $product->id) }}" class="btn btn-sm btn-danger">
                     Istrinti
                 </a>
+
+                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">
+                    Redaguoti
+                </a>
             </h3>
             <small>{{ $product->price }}€</small>
             <hr>
