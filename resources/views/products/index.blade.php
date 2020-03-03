@@ -16,12 +16,11 @@ resources/views/layouts/app.blade
             <h3>
 
                 <a href="{{ route('products.show', $product->id) }}">
-                    {{ $product->title }}
+                    {{ $product->title }} <span class="comment_count">({{ $product->comments->count() }})</span>
                 </a>
-                <small>{{ $product->category->title }}</small>
-                {{--<a href="/products/delete/{{ $product->id }}" class="btn btn-sm btn-danger">
-                    Istrinti
-                </a>--}}
+                @if($product->category)
+                    <small>{{ $product->category->title }}</small>
+                @endif
 
                 <a href="{{ route('products.delete', $product->id) }}" class="btn btn-sm btn-danger">
                     Istrinti

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -67,6 +68,7 @@ class ProductController extends Controller
 		// findOrFail funkcija grazina 404 atsakyma, jei toks elementas nerastas duombazeje
 		$product = Product::findOrFail($id);
 
+//		dd($comments);
 		return view('products.show', compact('product'));
 	}
 
