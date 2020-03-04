@@ -34,4 +34,8 @@ resources/views/layouts/app.blade
             <hr>
         </div>
     @endforeach
+
+    <div class="col-md-12">
+        {{ $products->links() }}
+    </div>
 @endsection

@@ -17,7 +17,7 @@ class ProductController extends Controller
 		// kreipiames i Product modeli
 		// Jei naudojame ne all arba find funckijas, visada kreipiantis i modeli
 		// reikia pabaigoje parasyti ->get()
-		$products = Product::all();
+		$products = Product::paginate(2);
 
 
 		$productsCount = Product::count();
@@ -25,6 +25,8 @@ class ProductController extends Controller
 		// grazzinu view faila is /resources/views/products/index.blade.php
 		return view('products.index', compact(['products', 'productsCount']));
 	}
+
+
 
 	/* produkto sukurimo formos atvaizdavimas */
 	public function create() {
