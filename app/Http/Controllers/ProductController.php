@@ -19,7 +19,6 @@ class ProductController extends Controller
 		// reikia pabaigoje parasyti ->get()
 		$products = Product::paginate(2);
 
-
 		$productsCount = Product::count();
 
 		// grazzinu view faila is /resources/views/products/index.blade.php
@@ -72,7 +71,6 @@ class ProductController extends Controller
 		// findOrFail funkcija grazina 404 atsakyma, jei toks elementas nerastas duombazeje
 		$product = Product::findOrFail($id);
 
-//		dd($comments);
 		return view('products.show', compact('product'));
 	}
 

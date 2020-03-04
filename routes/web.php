@@ -59,3 +59,7 @@ Route::get('/categories', 'CategoryController@index')->name('categories.index');
 
 // komentarai
 Route::post('/comments/create', 'CommentController@store')->name('comments.create');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
