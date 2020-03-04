@@ -18,6 +18,15 @@
             </div>
 
             <div class="form-group">
+                <select required name="category_id" class="form-control">
+                    <option disabled>Pasirinkite kategorija</option>
+                    @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
                 <input type="submit" class="btn btn-success" />
             </div>
         </form>

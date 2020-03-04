@@ -17,10 +17,7 @@ class ProductController extends Controller
 		// kreipiames i Product modeli
 		// Jei naudojame ne all arba find funckijas, visada kreipiantis i modeli
 		// reikia pabaigoje parasyti ->get()
-		$products = Product::where('price', '<', 100)
-						   ->where('title', 'LIKE', '%pro%')
-						   ->get();
-
+		$products = Product::all();
 
 
 		$productsCount = Product::count();
@@ -33,7 +30,11 @@ class ProductController extends Controller
 	public function create() {
 		// graziname /resources/views/products/create.blade.php
 		// faila
-		return view('products.create');
+
+
+		$categories = Category::all();
+
+		return view('products.create', compact('categories'));
 	}
 
 	/* Funkcija gauti duomenis is formos ir sudeti i duombaze  */
@@ -44,6 +45,7 @@ class ProductController extends Controller
 
 		$product->title = $request->input('title');
 		$product->price = $request->input('price');
+		$product->category_id = $request->input('category_id');
 
 		// funkcija save issaugo musu sukurta objekta duombazeje
 		$product->save();
